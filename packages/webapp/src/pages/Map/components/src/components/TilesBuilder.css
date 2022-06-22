@@ -1,0 +1,7 @@
+.tiles-builder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  height: 100vh;
+  position: relative;
+}
