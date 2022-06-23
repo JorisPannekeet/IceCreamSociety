@@ -37,4 +37,5 @@ header button:focus {
 header .options {
   display: flex;
   align-items: center;
+  font-size: 18px;
 }

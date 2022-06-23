@@ -4,10 +4,10 @@ export const constants = {
   numTilesX: 12,
   numTilesY: 6,
   tileSizeX: 130,
-  tileSizeY: 230
+  tileSizeY: 230,
 };
 
-export const indexToTileXY = i => {
+export const indexToTileXY = (i) => {
   const tileX = i % constants.numTilesX;
   const tileY = Math.floor(i / constants.numTilesX);
   const x = tileX * constants.tileSizeX;
@@ -16,18 +16,17 @@ export const indexToTileXY = i => {
   return { tileX, tileY, x, y };
 };
 
-export const indexToBgPosition = i => {
+export const indexToBgPosition = (i) => {
   const { tileX, tileY } = indexToTileXY(i);
-  return `${(tileX / (constants.numTilesX - 1)) * 100}% ${(tileY /
-    (constants.numTilesY - 1)) *
-    100}%`;
+  return `${(tileX / (constants.numTilesX - 1)) * 100}% ${
+    (tileY / (constants.numTilesY - 1)) * 100
+  }%`;
 };
 
 export const tileToBgPosition = ({ x, y }) => {
-  return `${(x / constants.tileSizeX / (constants.numTilesX - 1)) * 100}% ${(y /
-    constants.tileSizeY /
-    (constants.numTilesY - 1)) *
-    100}%`;
+  return `${(x / constants.tileSizeX / (constants.numTilesX - 1)) * 100}% ${
+    (y / constants.tileSizeY / (constants.numTilesY - 1)) * 100
+  }%`;
 };
 
 export const indexToPosition = (i, gridSize = 6) => {
@@ -49,7 +48,7 @@ export const indexToViewPosition = (
 
   return {
     left: `${(tileX - tileY - 1) * 64 + offsetX}px`,
-    top: `${(tileX + tileY) * 32 + offsetY}px`
+    top: `${(tileX + tileY) * 32 + offsetY}px`,
   };
 };
 
@@ -81,7 +80,7 @@ export const availableTiles = new Array(
   .fill(1)
   .map((_, i) => indexToTileXY(i));
 
-export const createTiles = (gridSize, randomize = true) =>
+export const createTiles = (gridSize, randomize = false) =>
   new Array(gridSize * gridSize)
     .fill(0)
     .map((_, i) => (randomize ? Math.floor(Math.random() * 72) : 0));
@@ -105,6 +104,6 @@ export const loadStateFromHash = (
 
   return {
     gridSize: baseGridSize,
-    tiles: baseTiles
+    tiles: baseTiles,
   };
 };

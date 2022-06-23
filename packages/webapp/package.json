@@ -11,6 +11,7 @@
     "@manaflair/redux-batch": "^1.0.0",
     "@ramp-network/ramp-instant-sdk": "^3.0.0",
     "@types/mapbox-gl": "^2.7.2",
+    "babel-eslint": "^10.1.0",
     "clipboard": "^2.0.8",
     "ethers": "^5.5.4",
     "export-from-json": "^1.4.0",

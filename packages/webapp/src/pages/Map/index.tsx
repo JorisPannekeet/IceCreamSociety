@@ -22,6 +22,8 @@ import { DepositNFTPanel } from "../NFTPage/NFTDeposit";
 import { mintService } from "@loopring-web/core";
 import { TitleNFTMobile } from "../NFTPage/components/titleNFTMobile";
 import { MapComponent } from "./map2";
+import { ModalProvider } from "./components/common/Modal";
+
 export const subMenu = subMenuNFT;
 
 export const MapPage = () => {
@@ -190,7 +192,9 @@ export const MapPage = () => {
               marginTop={0}
               flex={1}
             >
-              <MapComponent />
+              <ModalProvider>
+                <MapComponent />
+              </ModalProvider>
             </Box>
           </>
         );

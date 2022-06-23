@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "components/common/Modal";
+import { Modal } from "../common/Modal";
 
 export default function AboutModal({ setOpen }) {
   return (

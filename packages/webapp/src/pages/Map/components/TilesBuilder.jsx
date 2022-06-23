@@ -1,14 +1,14 @@
 import "./TilesBuilder.css";
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header";
-import TilesLibrary from "./components/TilesLibrary";
-import TilesView from "./components/TilesView";
+import Header from "./Header";
+import TilesLibrary from "./TilesLibrary";
+import TilesView from "./TilesView";
 import {
   createTiles,
   updateGridSize,
   loadStateFromHash,
-} from "providers/TilesService";
-import { debouce, saveToHash } from "providers/utils";
+} from "../providers/TilesService";
+import { debouce, saveToHash } from "../providers/utils";
 
 //const hash = "eyJncmlkU2l6ZSI6NiwidGlsZXMiOlswLDQ0LDQ0LDQ0LDQ0LDAsNDUsNzAsNjUsNjQsNDksNDMsNDUsNiwxLDYsNDksNDMsNDUsMzgsOCw0MCw0OSw0Myw0NSw2OSw2LDcxLDQ4LDQzLDAsNDIsNiw0Miw0MiwwXX0=";
 const { gridSize: baseGridSize, tiles: baseTiles } = loadStateFromHash(6);

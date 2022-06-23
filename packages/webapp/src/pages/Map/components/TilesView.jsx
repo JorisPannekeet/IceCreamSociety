@@ -1,8 +1,11 @@
 import "./TilesView.css";
 import React from "react";
-import { indexToBgPosition, indexToViewPosition } from "providers/TilesService";
+import {
+  indexToBgPosition,
+  indexToViewPosition,
+} from "../providers/TilesService";
 
-const getTileIdxFromBtnEvent = ev =>
+const getTileIdxFromBtnEvent = (ev) =>
   ev.target.hasAttribute("data-tile-idx")
     ? Number(ev.target.getAttribute("data-tile-idx"))
     : -1;
@@ -13,9 +16,9 @@ export default function TilesView({
   onRightClick,
   gridSize = 6,
   offsetX = 64 * gridSize,
-  offsetY = 0
+  offsetY = 0,
 }) {
-  const handleClick = ev => {
+  const handleClick = (ev) => {
     const i = getTileIdxFromBtnEvent(ev);
     if (i > -1) {
       ev.preventDefault();
@@ -27,7 +30,7 @@ export default function TilesView({
       }
     }
   };
-  const handleMouseMove = ev => {
+  const handleMouseMove = (ev) => {
     if (ev.buttons) {
       handleClick(ev);
     }
@@ -49,7 +52,7 @@ export default function TilesView({
             style={{
               backgroundPosition: indexToBgPosition(tile),
               top,
-              left
+              left,
             }}
           >
             <div

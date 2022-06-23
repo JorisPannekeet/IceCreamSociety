@@ -1,7 +1,7 @@
-export const stateToB64 = obj =>
+export const stateToB64 = (obj) =>
   Buffer.from(JSON.stringify(obj)).toString("base64");
 
-export const B64ToState = str => JSON.parse(Buffer.from(str, "base64"));
+export const B64ToState = (str) => JSON.parse(Buffer.from(str, "base64"));
 
 export const debouce = (cb, delay) => {
   const now = performance.now();
@@ -17,11 +17,11 @@ export const debouce = (cb, delay) => {
   }, delay);
 };
 
-export const saveToHash = obj => {
-  return (window.location.hash = stateToB64(obj));
+export const saveToHash = (obj) => {
+  return (window.location.hash = "map/" + stateToB64(obj));
 };
 
-export const loadFromHash = maybeHash => {
+export const loadFromHash = (maybeHash) => {
   let data = null;
   try {
     const hash = cleanHash(maybeHash || window.location.hash);
@@ -33,7 +33,7 @@ export const loadFromHash = maybeHash => {
   return data;
 };
 
-export const cleanHash = hash => {
+export const cleanHash = (hash) => {
   if (hash) {
     if (hash.indexOf("/")) {
       hash = hash.split("/").pop();

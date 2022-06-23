@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import { Modal } from "components/common/Modal";
+import { Modal } from "../common/Modal";
 
 export default function LoadModal({ setOpen, onLoadHash }) {
   const loadInputRef = useRef();
 
-  const handleLoadHash = ev => onLoadHash(loadInputRef.current.value);
+  const handleLoadHash = (ev) => onLoadHash(loadInputRef.current.value);
 
   return (
     <Modal
