@@ -19,6 +19,7 @@ export default function TilesBuilder() {
   const [gridSize, setGridSize] = useState(baseGridSize);
   const [tiles, setTiles] = useState(baseTiles);
   const [selectedTile, setSelectedTile] = useState(0);
+  const [librarySelection, setLibrarySelection] = useState(0);
 
   useEffect(() => {
     window.addEventListener("hashchange", onHashChange);
@@ -77,9 +78,12 @@ export default function TilesBuilder() {
   /**
    * Library handlers
    */
-  const handleSelect = (newSelection) => {
+  const handleSelect = (newSelection, customIndex) => {
     if (newSelection !== selectedTile) {
       setSelectedTile(newSelection);
+    }
+    if (librarySelection !== customIndex) {
+      setLibrarySelection(customIndex);
     }
   };
 
@@ -105,7 +109,7 @@ export default function TilesBuilder() {
         onRandomize={randomize}
         onClear={clear}
       />
-      <TilesLibrary selectedTile={selectedTile} onSelect={handleSelect} />
+      <TilesLibrary selectedTile={librarySelection} onSelect={handleSelect} />
       <TilesView
         tiles={tiles}
         gridSize={gridSize}
