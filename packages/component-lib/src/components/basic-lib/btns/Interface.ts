@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   ButtonProps as MuButtonPros,
   ToggleButtonGroupProps as MuToggleButtonGroupProps,

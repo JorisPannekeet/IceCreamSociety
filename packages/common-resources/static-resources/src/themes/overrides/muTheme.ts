@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createTheme } from "@mui/material";
 import { ColorDarkDefault, ColorLightDefault } from "../css/color-lib";
 import { borderFunc, unit } from "./utils";

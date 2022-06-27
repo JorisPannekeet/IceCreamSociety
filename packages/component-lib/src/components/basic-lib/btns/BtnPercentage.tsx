@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* Rectangle 340 */
 import styled from "@emotion/styled";
 import { BtnPercentageProps } from "./Interface";
