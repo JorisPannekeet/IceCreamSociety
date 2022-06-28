@@ -1,22 +1,22 @@
-header {
+.header {
   width: 100%;
   height: 32px;
   text-align: left;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 5px 12px;
-  background: #333;
+  background: #563801;
   color: white;
 }
 
-header .title {
+.header .title {
   font-size: 16px;
   font-weight: bold;
   margin-right: 20px;
 }
 
-header button {
+.header button {
   border: none;
   background: #ffbc00;
   border-radius: 3px;
@@ -25,16 +25,16 @@ header button {
   cursor: pointer;
 }
 
-header button:hover {
+.header button:hover {
   background: rgb(169, 150, 99);
 }
 
-header button:focus {
+.header button:focus {
   background: rgb(212, 194, 147);
   outline: none;
 }
 
-header .options {
+.header .options {
   display: flex;
   align-items: center;
   font-size: 18px;

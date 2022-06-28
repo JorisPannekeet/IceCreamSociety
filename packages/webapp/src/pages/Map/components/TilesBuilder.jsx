@@ -18,7 +18,9 @@ let lastHash = "";
 export default function TilesBuilder() {
   const [gridSize, setGridSize] = useState(baseGridSize);
   const [tiles, setTiles] = useState(baseTiles);
+  const [nfts, setNfts] = useState([{}]);
   const [selectedTile, setSelectedTile] = useState(0);
+  const [selectedNft, setSelectedNft] = useState({ image: "", name: "" });
   const [librarySelection, setLibrarySelection] = useState(0);
 
   useEffect(() => {
@@ -78,23 +80,34 @@ export default function TilesBuilder() {
   /**
    * Library handlers
    */
-  const handleSelect = (newSelection, customIndex) => {
+  const handleSelect = (newSelection, customIndex, newNftSelection) => {
     if (newSelection !== selectedTile) {
       setSelectedTile(newSelection);
     }
     if (librarySelection !== customIndex) {
       setLibrarySelection(customIndex);
     }
+    if (selectedNft !== newNftSelection) {
+      setSelectedNft(newNftSelection);
+    }
   };
 
   /**
    * View Handlers
    */
-  const setTile = (tileIdx, tileType) => {
-    const newTiles = [...tiles];
-    newTiles[tileIdx] = tileType;
-    setTiles(newTiles);
 
+  const setNft = (tileIdx, selectedNft) => {
+    console.log("here");
+    const newNfts = [...nfts];
+    newNfts[tileIdx] = selectedNft;
+    setNfts(newNfts);
+  };
+  const setTile = (tileIdx, selectedTile) => {
+    const newTiles = [...tiles];
+    newTiles[tileIdx] = selectedTile;
+    console.log({ newTiles, librarySelection });
+    setTiles(newTiles);
+    setNft(tileIdx, selectedNft);
     updateHash();
   };
   const leftClick = (tileIdx) => setTile(tileIdx, selectedTile);
@@ -112,6 +125,7 @@ export default function TilesBuilder() {
       <TilesLibrary selectedTile={librarySelection} onSelect={handleSelect} />
       <TilesView
         tiles={tiles}
+        nfts={nfts}
         gridSize={gridSize}
         onLeftClick={leftClick}
         onRightClick={rightClick}

@@ -47,7 +47,7 @@ export const indexToViewPosition = (
   const { tileX, tileY } = indexToPosition(i, gridSize);
 
   return {
-    left: `${(tileX - tileY - 1) * 64 + offsetX}px`,
+    left: `calc(${(tileX - tileY - 1) * 64 + offsetX}px + 30%)`,
     top: `${(tileX + tileY) * 32 + offsetY}px`,
   };
 };

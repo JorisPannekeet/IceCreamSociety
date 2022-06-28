@@ -12,6 +12,7 @@ const getTileIdxFromBtnEvent = (ev) =>
 
 export default function TilesView({
   tiles,
+  nfts,
   onLeftClick,
   onRightClick,
   gridSize = 6,
@@ -35,7 +36,7 @@ export default function TilesView({
       handleClick(ev);
     }
   };
-
+  // console.log({ nfts, tiles });
   return (
     <div className="tiles-view" onMouseMove={handleMouseMove}>
       {tiles.map((tile, i) => {
@@ -45,6 +46,8 @@ export default function TilesView({
           offsetX,
           offsetY
         );
+        const nft = tile !== 0 ? nfts[i] : {};
+        console.log({ nft });
         return (
           <div
             key={i}
@@ -60,6 +63,7 @@ export default function TilesView({
               data-tile-idx={i}
               onMouseDown={handleClick}
             />
+            {tile !== 0 && nft.image !== undefined && <img src={nft?.image} />}
           </div>
         );
       })}

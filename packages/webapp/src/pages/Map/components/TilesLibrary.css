@@ -9,7 +9,9 @@
   /* display: flex; */
   flex-wrap: wrap;
   justify-content: center;
-  background: #444;
+  /* background: #444; */
+  background: #563801;
+  border: 10px solid #372300;
 }
 .tile-tabs {
   margin: 5px 0px;
@@ -25,7 +27,9 @@
   width: 100%;
   margin: 0;
   padding: 10px;
-  background: #222;
+  /* background: #222; */
+  background: #563801;
+  border-bottom: 10px solid #372300;
   color: #eee;
   font-size: 22px;
   font-weight: 400;

@@ -33,6 +33,7 @@ export default function TilesLibrary({ selectedTile, onSelect }) {
           )
         : [];
       const fullSrc = item?.image?.replace(IPFS_META_URL, IPFS_LOOPRING_SITE);
+      const nftName = item.name;
       const mapper = nftMApper.find((item) => item.job === job[0]?.value);
 
       if (mapper !== undefined) {
@@ -43,6 +44,7 @@ export default function TilesLibrary({ selectedTile, onSelect }) {
                 ...tile,
                 originalIndex: index,
                 nftImage: fullSrc,
+                nftName: nftName,
               });
             } else if (indexValue.id !== 1) {
               newTiles.push({ ...tile, originalIndex: index });
@@ -55,9 +57,12 @@ export default function TilesLibrary({ selectedTile, onSelect }) {
     setFilteredTiles(newTiles);
   }, [indexValue]);
 
-  const handleSelect = (index, customIndex) => {
-    onSelect(index, customIndex);
-    console.log({ index });
+  const handleSelect = (index, customIndex, newNftSelection) => {
+    onSelect(index, customIndex, newNftSelection);
+    // Removes tile...
+    // const newTiles = [...filteredTiles];
+    // newTiles.splice(customIndex, 1);
+    // setFilteredTiles(newTiles);
   };
   return (
     <div className="tiles-library">
@@ -66,7 +71,7 @@ export default function TilesLibrary({ selectedTile, onSelect }) {
         <a onClick={() => setIndexValue({ id: 1, start: 54, end: 100 })}>
           Buildings
         </a>
-        <a onClick={() => setIndexValue({ id: 2, start: 0, end: 45 })}>Infra</a>
+        <a onClick={() => setIndexValue({ id: 2, start: 0, end: 45 })}>Roads</a>
         <a onClick={() => setIndexValue({ id: 3, start: 48, end: 53 })}>
           Water
         </a>
@@ -77,7 +82,12 @@ export default function TilesLibrary({ selectedTile, onSelect }) {
           <div
             key={i}
             className={`tile ${selectedTile === i ? "selected" : ""}`}
-            onClick={() => handleSelect(tile.originalIndex, i)}
+            onClick={() =>
+              handleSelect(tile.originalIndex, i, {
+                image: tile.nftImage,
+                name: tile.nftName,
+              })
+            }
           >
             {tile.nftImage && (
               <div

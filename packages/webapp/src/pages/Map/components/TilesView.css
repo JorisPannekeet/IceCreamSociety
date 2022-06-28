@@ -3,7 +3,9 @@
   flex-grow: 1;
   overflow: scroll;
   position: relative;
-  background: #2a3444;
+  /* background: #2a3444; */
+  background-image: url(../public/assets/bg.jpeg);
+  background-size: cover;
 }
 
 .tiles-view .tile {
@@ -30,4 +32,26 @@
 
 .tiles-view .tile .tile-btn:hover {
   opacity: 1;
+}
+.tile img {
+  border: 0px !important;
+  border-radius: 100%;
+  top: -115px;
+  left: 37px;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 10px, 0);
+  }
 }

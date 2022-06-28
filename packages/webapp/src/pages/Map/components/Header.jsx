@@ -14,7 +14,7 @@ export default function Header({
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
   return (
-    <header>
+    <div className="header">
       {/* <div>
         <button onClick={() => setIsModalOpen(true)}>Load...</button>
         <button onClick={() => setIsAboutModalOpen(true)}>About</button>
@@ -36,6 +36,6 @@ export default function Header({
         <LoadModal setOpen={setIsModalOpen} onLoadHash={onLoadHash} />
       )}
       {isAboutModalOpen && <AboutModal setOpen={setIsAboutModalOpen} />}
-    </header>
+    </div>
   );
 }
